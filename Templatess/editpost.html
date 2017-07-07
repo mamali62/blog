@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="get" action="/blog" name="cancle-post-edit">
+    <input type="submit" value="cancel edit">
+</form>
+<form method="get" action="/blog/delete/{{post.key().id()}}" name="delete-post-form">
+    <input type="submit" value="delete">
+</form>
+  <h2>edit post</h2>
+    <form method="post">
+      <label>
+        <div>subject</div>
+        <input type="text" name="subject" value="{{post.subject}}">
+      </label>
+
+      <label>
+        <div>blog</div>
+        <textarea name="content">{{content}}</textarea>
+      </label>
+      <div class="error">{{error}}</div>
+      <input type="submit" value="save">
+    </form>
+{% endblock %}
